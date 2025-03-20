@@ -23,3 +23,8 @@ created durable consumer: user-consumer
 
 Synadia Cloud — create stream:
 ![Synadia Cloud stream screenshot](./static/cloud.png)
+
+Docs:
+- https://nats-io.github.io/nats.js/
+- https://github.com/nats-io/nats.js/
+- https://docs.synadia.com/cloud/faq
