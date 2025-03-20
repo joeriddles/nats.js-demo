@@ -7,10 +7,10 @@
         "<node_internals>/**"
       ],
       "type": "node",
-      "program": "${workspaceFolder}/main.js",
+    "program": "${workspaceFolder}/main.mjs",
       "args": [
         "${input:credsFile}"
-      ]
+      ],
     }
   ],
   "inputs": [

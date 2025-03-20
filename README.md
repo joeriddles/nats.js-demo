@@ -2,10 +2,21 @@
 
 Simple demo of [nat.js](https://github.com/nats-io/nats.js/) with [Synadia Cloud / NGS](https://docs.synadia.com/cloud/faq).
 
-To run:
+Setup:
 ```shell
 npm install
+```
+
+To run:
+```shell
 node main.mjs <nats_creds_file>
+```
+
+Alternatively, you can run it with the `NATS_CREDS` environment variable:
+```shell
+NATS_CREDS='...' node main.mjs
+# or even...
+NATS_CRESDS="$(cat <nats_creds_file>)" node main.mjs
 ```
 
 Expected output:

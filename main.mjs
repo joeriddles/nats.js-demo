@@ -1,20 +1,25 @@
 #!/usr/bin/env node
 
 import * as fs from "node:fs"
-import { argv, exit } from "node:process"
+import { argv, exit, env } from "node:process"
 
 import { credsAuthenticator } from "@nats-io/nats-core";
 import { jetstream, jetstreamManager, AckPolicy } from "@nats-io/jetstream";
 import { connect } from "@nats-io/transport-node";
 
-if (argv.length < 3) {
-  console.error('creds_file required')
+if (argv.length < 3 && !env.NATS_CREDS) {
+  console.error('creds_file or env.NATS_CREDS is required')
   console.error(`usage: node main.mjs <creds_file>`)
   exit(1)
 }
 
-const [_node, _file, credsFile] = argv
-const creds = fs.readFileSync(credsFile, 'utf8');
+let creds
+if (argv.length >= 3) {
+  const [_node, _file, credsFile] = argv
+  creds = fs.readFileSync(credsFile, 'utf8');
+} else {
+  creds = env.NATS_CREDS
+}
 
 const connOpts = {
   servers: ['nats://connect.ngs.global'],
