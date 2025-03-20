@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "name": "debug",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "program": "${workspaceFolder}/main.js",
+      "args": [
+        "${input:credsFile}"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "credsFile",
+      "description": "NATS user creds filepath",
+      "type": "promptString"
+    }
+  ]
+}
